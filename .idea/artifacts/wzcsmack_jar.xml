@@ -1,0 +1,27 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="wzcsmack:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/wzcsmack_jar</output-path>
+    <root id="archive" name="wzcsmack.jar">
+      <element id="module-output" name="wzcsmack" />
+      <element id="extracted-dir" path="F:/Maven/Repository/org/igniterealtime/smack/smack-core/4.1.8/smack-core-4.1.8.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="F:/Maven/Repository/org/igniterealtime/smack/smack-resolver-javax/4.1.8/smack-resolver-javax-4.1.8.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="F:/Maven/Repository/org/igniterealtime/smack/smack-sasl-provided/4.1.8/smack-sasl-provided-4.1.8.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="F:/Maven/Repository/org/igniterealtime/smack/smack-sasl-javax/4.1.8/smack-sasl-javax-4.1.8.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="F:/Maven/Repository/org/igniterealtime/smack/smack-android/4.1.8/smack-android-4.1.8.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="F:/Maven/Repository/org/igniterealtime/smack/smack-android-extensions/4.1.8/smack-android-extensions-4.1.8.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="F:/Maven/Repository/xpp3/xpp3/1.1.4c/xpp3-1.1.4c.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="F:/Maven/Repository/org/igniterealtime/smack/smack-tcp/4.1.8/smack-tcp-4.1.8.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="F:/Maven/Repository/org/apache/httpcomponents/httpclient/4.5.5/httpclient-4.5.5.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="F:/Maven/Repository/org/igniterealtime/smack/smack-resolver-minidns/4.1.8/smack-resolver-minidns-4.1.8.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="F:/Maven/Repository/org/jxmpp/jxmpp-core/0.4.2/jxmpp-core-0.4.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="F:/Maven/Repository/de/measite/minidns/minidns/0.1.7/minidns-0.1.7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="F:/Maven/Repository/org/apache/httpcomponents/httpcore/4.4.9/httpcore-4.4.9.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="F:/Maven/Repository/org/jxmpp/jxmpp-util-cache/0.4.2/jxmpp-util-cache-0.4.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="F:/Maven/Repository/org/igniterealtime/smack/smack-im/4.1.8/smack-im-4.1.8.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="F:/Maven/Repository/commons-codec/commons-codec/1.10/commons-codec-1.10.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="F:/Maven/Repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="F:/Maven/Repository/org/igniterealtime/smack/smack-extensions/4.1.8/smack-extensions-4.1.8.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="F:/Maven/Repository/org/igniterealtime/smack/smack-java7/4.1.8/smack-java7-4.1.8.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
