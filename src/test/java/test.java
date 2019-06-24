@@ -1,7 +1,7 @@
 import communicate.XMPPSession;
 import communicate.XMPPSessionFactory;
 import communicate.XMPPSessionFactoryBuilder;
-import org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration;
+import communicate.configuration.ConstantConfig;
 import org.junit.Test;
 
 import java.util.Map;
@@ -22,11 +22,13 @@ public class test {
     public void testUser1(){
         XMPPSessionFactory xmppSessionFactory = new XMPPSessionFactoryBuilder().build();
         XMPPSession xmppSession = xmppSessionFactory.openSession();
+        //设置文件存储路径
+        ConstantConfig.FILE_PATH = "/";
         xmppSession.login("test1","test");
         xmppSession.getSingleChat("test2");
         xmppSession.sendMessage("test2","hello");
         xmppSession.sendMessage("test2","hello");
-
+        xmppSession.sendMessage("test2","hello");
 //        xmppSession.register("test3","test");
         while (true);
     }

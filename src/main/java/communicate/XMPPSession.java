@@ -1,7 +1,6 @@
 package communicate;
 
 import org.jivesoftware.smack.chat.Chat;
-import org.jivesoftware.smack.roster.RosterEntry;
 
 import java.util.List;
 import java.util.Map;
@@ -15,13 +14,12 @@ public interface XMPPSession {
      * 添加好友
      * 删除好友
      */
-
     boolean login(String uname, String pwd);
     boolean register(String uname, String pwd);
-
+    void logout();
     /**
      * 返回好友列表
-     * @return Map {JID,nickname}
+     * @return Map {uname,nickname}
      */
     Map<String,String> getAllFriends();
 

@@ -1,9 +1,13 @@
 package communicate;
 
+import com.example.dell.jsltevent.ObserverService.Event.FileEvent;
+import com.example.dell.jsltevent.ObserverService.Event.InfoEvent;
 import communicate.XMPPConnectionManager.ConnectionManager;
-import communicate.XMPPConnectionManager.XMPPConnectionManager;
 import communicate.configuration.ConstantConfig;
-import org.jivesoftware.smack.*;
+import org.jivesoftware.smack.AbstractXMPPConnection;
+import org.jivesoftware.smack.MessageListener;
+import org.jivesoftware.smack.SmackException;
+import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smack.chat.Chat;
 import org.jivesoftware.smack.chat.ChatManager;
 import org.jivesoftware.smack.chat.ChatManagerListener;
@@ -13,10 +17,8 @@ import org.jivesoftware.smackx.filetransfer.*;
 import org.jivesoftware.smackx.muc.MultiUserChat;
 import org.jivesoftware.smackx.muc.MultiUserChatManager;
 import org.jivesoftware.smackx.offline.OfflineMessageManager;
-import org.jivesoftware.smackx.ping.PingManager;
-import org.jivesoftware.smackx.ping.packet.Ping;
 import org.jivesoftware.smackx.xdata.Form;
-
+import com.example.dell.jsltevent.ObserverService.Event.Event;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -211,7 +213,11 @@ public class XMPPChatManager {
                 if (!chatList.containsKey(from)){
                     chatList.put(from,chat);
                 }
-                //todo 改成发送给handler
+                Map<String,String> msg = new HashMap<String,String>();
+                msg.put("uname",from);
+                msg.put("msg",body);
+                Event event = InfoEvent.getInstance();
+                event.informObserver(msg);
                 System.out.println(from+body);
             }
         };
@@ -242,7 +248,15 @@ public class XMPPChatManager {
                     //todo 文件怎么存储,暂时存储在d盘，文件名
                     try {
                         //todo hanlder
-                        infile.recieveFile(new File("D:\\file.txt" ));
+                        String from = fileTransferRequest.getRequestor().split("/")[0];
+                        String fileName = fileTransferRequest.getFileName();
+                        String filePath = ConstantConfig.FILE_PATH+fileName;
+                        infile.recieveFile(new File(filePath));
+                        Map<String,String> file = new HashMap<String, String>();
+                        file.put("from",from);
+                        file.put("filepath",filePath);
+                        Event event = FileEvent.getInstance();
+                        event.informObserver(file);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -330,6 +344,8 @@ public class XMPPChatManager {
         return false;
     }
 
-
+    public static void destory(){
+        xmppChatManager = null;
+    }
 
 }

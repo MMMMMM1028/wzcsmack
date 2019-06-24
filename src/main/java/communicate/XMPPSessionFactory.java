@@ -28,5 +28,6 @@ public class XMPPSessionFactory {
     public XMPPSession openSession(){
         ConnectionManager connectionManager = new HeartBeatXMPPConnectionManager(new ReconnectXMPPConnectionManager(this.connectionManager));
         return new XMPPSessionImpl(connectionManager,this.xmppChatManager,this.xmppAccountManager);
+
     }
 }

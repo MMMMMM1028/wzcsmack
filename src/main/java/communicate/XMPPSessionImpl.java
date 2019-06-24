@@ -2,7 +2,6 @@ package communicate;
 
 import communicate.XMPPConnectionManager.ConnectionManager;
 import org.jivesoftware.smack.chat.Chat;
-import org.jivesoftware.smack.roster.RosterEntry;
 
 import java.util.List;
 import java.util.Map;
@@ -25,7 +24,11 @@ public class XMPPSessionImpl implements XMPPSession{
     public boolean login(String uname, String pwd) {
         return xmppAccountManager.login(uname,pwd);
     }
-
+    public void logout(){
+        xmppAccountManager.logout();
+        XMPPAccountManager.destory();
+        XMPPChatManager.destory();
+    }
     public boolean register(String uname, String pwd) {
         return xmppAccountManager.register(uname,pwd);
     }

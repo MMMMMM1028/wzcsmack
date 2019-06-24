@@ -2,17 +2,17 @@ package communicate;
 
 import communicate.XMPPConnectionManager.ConnectionManager;
 import communicate.configuration.ConstantConfig;
-import org.jivesoftware.smack.AbstractXMPPConnection;
 import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPException;
-import org.jivesoftware.smack.packet.Presence;
 import org.jivesoftware.smack.roster.Roster;
 import org.jivesoftware.smack.roster.RosterEntry;
 import org.jivesoftware.smackx.iqregister.AccountManager;
+
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.*;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  * 用户管理，主要方法
@@ -88,6 +88,12 @@ public class XMPPAccountManager {
     }
 
     /**
+     * 退出关闭连接
+     */
+    public void logout(){
+        mXmppConnectionManager.closeConnection();
+    }
+    /**
      * 注册账号
      * @param account
      * @param pwd
@@ -99,6 +105,7 @@ public class XMPPAccountManager {
             return false;
         }
         try {
+            AccountManager.getInstance(mXmppConnectionManager.getConnection()).sensitiveOperationOverInsecureConnection(true);
             AccountManager.getInstance(mXmppConnectionManager.getConnection()).createAccount(account,pwd);
             return true;
         } catch (SmackException.NoResponseException e) {
@@ -184,6 +191,10 @@ public class XMPPAccountManager {
             e.printStackTrace();
         }
         return false;
+    }
+
+    public static void destory(){
+        XMPPAccountManager = null;
     }
 
 }

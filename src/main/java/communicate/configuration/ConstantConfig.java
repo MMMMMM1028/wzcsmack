@@ -23,4 +23,6 @@ public class ConstantConfig {
     //直接同意所有好友请求，简单
     public static final Roster.SubscriptionMode DEFAULT_SUBSCRIPTION_MODE = Roster.SubscriptionMode.accept_all;
 
+    public static String FILE_PATH = "/";
+
 }
